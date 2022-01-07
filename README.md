@@ -21,10 +21,10 @@ pip3 install tika
 ## Apache configuration: VirtualHost
 ```
 <VirtualHost *:80>
-	ServerAdmin admin@splitter.local
-	ServerName www.splitter.local
-	ServerAlias splitter.local
-	DocumentRoot /var/www/html/splitter.local/public
+	ServerAdmin admin@avaluacions
+	ServerName avaluacions
+	ServerAlias avaluacions
+	DocumentRoot /var/www/html/avaluacions/public
 	ErrorLog ${APACHE_LOG_DIR}/error.log
 	CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
@@ -37,6 +37,13 @@ Start the server with:
 
 Run the tika server script with:
 
-`bash /var/www/html/script/tika_server_start.sh`
+`bash /var/www/html/avaluacions/script/tika_server_start.sh`
+
+Setting up a cron job is recommended for the tika server script to run at server start up:
+
+1. Run: `$ sudo crontab -e`
+2. Select an editor
+3. Insert at the end of the file: `@reboot bash /var/www/html/avaluacions/script/tika_server_start.sh`
+4. Save and close the file. Then restart the server with: `$ sudo systemctl restart apache2`
 
 Visit localhost:80 from your browser.

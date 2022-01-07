@@ -3,4 +3,5 @@
 /script/tmp/*
 !/script/tmp/README.md
 .DS_Store
-/log
+/log/*
+!/log/README.md
